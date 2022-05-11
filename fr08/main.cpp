@@ -24,8 +24,8 @@ void part3();
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	//part1();
-	//part2();
+	part1();
+	part2();
 	part3();
 	return 0;
 }
@@ -102,7 +102,7 @@ void part2()
 			continue;
 		}
 
-		if (n[0]==n[3] && n[1]==n[2])
+		if (n[0] == n[3] && n[1] == n[2])
 		{
 			std::cout << "Палиндром, однако" << std::endl;
 		}
@@ -119,10 +119,88 @@ void part2()
 void part3()
 {
 	std::cout << "Рейтинг бакалавров" << std::endl;
+	const double SCORE = 45.;
+	const double MIN_AVG = 3.;
+	const double MAX_AVG = 5.;
+	const double eps = 0.0001;
+	double score;
+
+	enum class Stage
+	{
+		NONE = 1,
+		ALMOST_TWO = 13,
+		TWO_FIVE = 16,
+		MORE = 100500
+	};
 
 	do
 	{
-		std::cout << "Для выхода жми 0" << std::endl;
+		std::cout << "Твой средний балл диплома: " << std::endl;
+		double avg;
+		std::cin >> avg;
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(INT32_MAX, '\n');
+			std::cout << "Ты что, дурной?" << std::endl;
+			std::cout << "Для выхода жми 0" << std::endl;
+			continue;
+		}
+
+		if (avg < MIN_AVG)
+		{
+			std::cout << "Маловато будет же..." << std::endl;
+			std::cout << "Для выхода жми 0" << std::endl;
+			continue;
+		}
+
+		if (avg > MAX_AVG)
+		{
+			std::cout << "Эм-м-м... пятибальная же система..." << std::endl;
+			std::cout << "Для выхода жми 0" << std::endl;
+			continue;
+		}
+
+		std::cout << "Стаж работы по специальности: " << std::endl;
+		double stage;
+		std::cin >> stage;
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(INT32_MAX, '\n');
+			std::cout << "Ты что, дурной?" << std::endl;
+			std::cout << "Для выхода жми 0" << std::endl;
+			continue;
+		}
+
+		if (stage <= eps)
+		{
+			score = avg * (int)Stage::NONE;
+		}
+		else
+		{
+			if (stage < 2)
+			{
+				score = avg * (int)Stage::ALMOST_TWO;
+			}
+			else
+			{
+				if (stage <= 5)
+				{
+					score = avg * (int)Stage::TWO_FIVE;
+				}
+				else
+				{
+					score = avg * (int)Stage::MORE;
+					std::cout << "Не знаю зачем тебе в магистратуру, но..." << std::endl;
+				}
+			}
+		}
+
+		std::cout << (score >= SCORE ? "Тебя взяли!" : "Не, не возьмут") 
+			<< "\nПотому что ты набрал: " << score << std::endl;
 		std::cout << "Для выхода жми 0" << std::endl;
 	}
 	while ('0' != _getch());
