@@ -140,7 +140,7 @@ void part3()
 		{7,6,10}
 	};
 	std::vector<int> v1(3);
-	srand(time(NULL));
+	srand(static_cast<unsigned>(time(NULL)));
 
 	do
 	{
@@ -148,7 +148,7 @@ void part3()
 
 		for (const auto &s : v)
 		{
-			static int i = 1;
+			static std::size_t i = 1;
 			i = i > v.size() ? 1 : i;
 			std::cout << "Набор №" << i++ << ": ";
 
