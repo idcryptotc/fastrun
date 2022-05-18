@@ -11,3 +11,4 @@
 <div><a href="https://ravesli.com/praktika-chast-8/">fr08</a></div>
 <div><a href="https://ravesli.com/praktika-chast-9/">fr09</a></div>
 <div><a href="https://ravesli.com/praktika-chast-10/">fr10</a></div>
+<div><a href="https://ravesli.com/praktika-chast-11/">fr11</a></div>
