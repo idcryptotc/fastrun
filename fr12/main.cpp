@@ -32,8 +32,8 @@ int main()
 	srand(static_cast<unsigned>(time(NULL)));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	//part1();
-	//part2();
+	part1();
+	part2();
 	part3();
 	return 0;
 }
@@ -87,13 +87,13 @@ void part3()
 	const int FIVE = 5;
 	std::vector<Human *> v(FIVE);
 
-	for (int i = 0; i < FIVE; ++i)
-	{
-		v[i] = Human::create(HumanType(rand() % 3));
-	}
-
 	do
 	{
+		for (int i = 0; i < FIVE; ++i)
+		{
+			v[i] = Human::create(HumanType(rand() % 3));
+		}
+
 		std::cout << "Начнём. Участники:" << std::endl;
 
 		for (const auto &h : v)
@@ -111,11 +111,11 @@ void part3()
 		}
 
 		std::cout << "Для выхода жми 0" << std::endl;
+
+		for (int i = 0; i < FIVE; ++i)
+		{
+			Human::destroy(v[i]);
+		}
 	}
 	while ('0' != _getch());
-
-	for (int i = 0; i < FIVE; ++i)
-	{
-		Human::destroy(v[i]);
-	}
 }
