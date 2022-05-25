@@ -31,8 +31,8 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	//part1();
-	part2();
-	//part3();
+	//part2();
+	part3();
 	return 0;
 }
 
@@ -90,12 +90,42 @@ void part2()
 
 void part3()
 {
-	std::cout << "Чатик" << std::endl;
+	std::cout << "Монетка" << std::endl;
+	enum class Chance { heads, tails };
+	std::string heads = "Орёл";
+	std::string tails = "Решка";
 
 	do
 	{
-		std::cout << "Начнём. Участники:" << std::endl;
+		std::ofstream file("result.txt");
+
+		if (!file.is_open())
+		{
+			std::cout << "Жопа... файл не открылся..." << std::endl;
+		}
+
+		std::pair<int, int> count{ 0,0 };
+
+		for (int i = 0; i < 100; ++i)
+		{
+			switch (Chance(rand() % 2))
+			{
+			case Chance::heads:
+				file << heads << std::endl;
+				++count.first;
+				break;
+			case Chance::tails:
+				file << tails << std::endl;
+				++count.second;
+				break;
+			}
+		}
+
+		std::cout << "Орлов: " << count.first << std::endl;
+		std::cout << "Решек: " << count.second << std::endl;
+		file << "Орлов: " << count.first << " Решек: " << count.second << std::endl;
 		std::cout << "Для выхода жми 0" << std::endl;
+		file.close();
 	}
 	while ('0' != _getch());
 }
