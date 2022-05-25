@@ -30,8 +30,8 @@ int main()
 	srand(static_cast<unsigned>(time(NULL)));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	//part1();
-	//part2();
+	part1();
+	part2();
 	part3();
 	return 0;
 }
