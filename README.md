@@ -15,3 +15,4 @@
 <div><a href="https://ravesli.com/praktika-chast-12/">fr12</a></div>
 <div><a href="https://ravesli.com/praktika-chast-13/">fr13</a></div>
 <div><a href="https://ravesli.com/praktika-chast-14/">fr14</a></div>
+<div><a href="https://ravesli.com/praktika-chast-15/">fr15</a></div>
