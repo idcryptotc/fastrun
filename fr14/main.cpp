@@ -82,7 +82,7 @@ void part2()
 		{
 			std::cin.clear();
 			std::cin.ignore(INT32_MAX, '\n');
-			std::cout << "Почти..." << std::endl;
+			std::cout << "Ну, почти..." << std::endl;
 			std::cout << "Для выхода жми 0" << std::endl;
 			continue;
 		}
