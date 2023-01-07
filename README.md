@@ -1,19 +1,20 @@
 # fastrun
 Задачки с сайта https://ravesli.com/
 
-<div><a href="https://ravesli.com/praktika-chast-1/">fr01</a></div>
-<div><a href="https://ravesli.com/praktika-chast-2/">fr02</a></div>
-<div><a href="https://ravesli.com/praktika-chast-3/">fr03</a></div>
-<div><a href="https://ravesli.com/praktika-chast-4/">fr04</a></div>
-<div><a href="https://ravesli.com/praktika-chast-5/">fr05</a></div>
-<div><a href="https://ravesli.com/praktika-chast-6/">fr06</a></div>
-<div><a href="https://ravesli.com/praktika-chast-7/">fr07</a></div>
-<div><a href="https://ravesli.com/praktika-chast-8/">fr08</a></div>
-<div><a href="https://ravesli.com/praktika-chast-9/">fr09</a></div>
-<div><a href="https://ravesli.com/praktika-chast-10/">fr10</a></div>
-<div><a href="https://ravesli.com/praktika-chast-11/">fr11</a></div>
-<div><a href="https://ravesli.com/praktika-chast-12/">fr12</a></div>
-<div><a href="https://ravesli.com/praktika-chast-13/">fr13</a></div>
-<div><a href="https://ravesli.com/praktika-chast-14/">fr14</a></div>
-<div><a href="https://ravesli.com/praktika-chast-15/">fr15</a></div>
-<div><a href="https://ravesli.com/praktika-chast-16/">fr16</a></div>
+<div><a href="https://ravesli.com/praktika-chast-1/">Часть №1: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-2/">Часть №2: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-3/">Часть №3: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-4/">Часть №4: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-5/">Часть №5: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-6/">Часть №6: Практические задания по С++6</a></div>
+<div><a href="https://ravesli.com/praktika-chast-7/">Часть №7: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-8/">Часть №8: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-9/">Часть №9: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-10/">Часть №10: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-11/">Часть №11: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-12/">Часть №12: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-13/">Часть №13: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-14/">Часть №14: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-15/">Часть №15: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-16/">Часть №16: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-17/">Часть №17: Практические задания по С++</a></div>
