@@ -39,11 +39,11 @@ int main()
 
 void part1()
 {
-	std::cout << "Наименьший элемент массива через указатель" << std::endl;
+	std::cout << "РќР°РёРјРµРЅСЊС€РёР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° С‡РµСЂРµР· СѓРєР°Р·Р°С‚РµР»СЊ" << std::endl;
 
 	do
 	{
-		std::cout << "Введи массив целых чисел:" << std::endl;
+		std::cout << "Р’РІРµРґРё РјР°СЃСЃРёРІ С†РµР»С‹С… С‡РёСЃРµР»:" << std::endl;
 		std::vector<int> arrayInt;
 		int tempInput;
 		
@@ -63,12 +63,12 @@ void part1()
 
 		if (arrayInt.size() <= 0)
 		{
-			std::cout << "Чисел не обнаружено" << std::endl;
-			std::cout << "Для выхода жми 0" << std::endl;
+			std::cout << "Р§РёСЃРµР» РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРѕ" << std::endl;
+			std::cout << "Р”Р»СЏ РІС‹С…РѕРґР° Р¶РјРё 0" << std::endl;
 			continue;
 		}
 
-		std::cout << "Наименьший элемент: ";
+		std::cout << "РќР°РёРјРµРЅСЊС€РёР№ СЌР»РµРјРµРЅС‚: ";
 		int min = INT32_MAX;
 
 		for (ptrdiff_t *i = &arrayInt[0]; i < &arrayInt[0] + arrayInt.size(); ++i)
@@ -80,18 +80,18 @@ void part1()
 		}
 
 		std::cout << min << std::endl;
-		std::cout << "Для выхода жми 0" << std::endl;
+		std::cout << "Р”Р»СЏ РІС‹С…РѕРґР° Р¶РјРё 0" << std::endl;
 	}
 	while ('0' != _getch());
 }
 
 void part2()
 {
-	std::cout << "Начнём с пробела, закончим точкой" << std::endl;
+	std::cout << "РќР°С‡РЅС‘Рј СЃ РїСЂРѕР±РµР»Р°, Р·Р°РєРѕРЅС‡РёРј С‚РѕС‡РєРѕР№" << std::endl;
 
 	do
 	{
-		std::cout << "Введи строку:" << std::endl;
+		std::cout << "Р’РІРµРґРё СЃС‚СЂРѕРєСѓ:" << std::endl;
 		std::string string;
 		std::getline(std::cin, string);
 		
@@ -99,79 +99,79 @@ void part2()
 		{
 			std::cin.clear();
 			std::cin.ignore(INT32_MAX, '\n');
-			std::cout << "Почти..." << std::endl;
-			std::cout << "Для выхода жми 0" << std::endl;
+			std::cout << "РџРѕС‡С‚Рё..." << std::endl;
+			std::cout << "Р”Р»СЏ РІС‹С…РѕРґР° Р¶РјРё 0" << std::endl;
 			continue;
 		}
 
 		string[0] = ' ';
 		string[string.length() - 1] = '.';
-		std::cout << "Результат:" << std::endl;
+		std::cout << "Р РµР·СѓР»СЊС‚Р°С‚:" << std::endl;
 		std::cout << string << std::endl;
-		std::cout << "Для выхода жми 0" << std::endl;
+		std::cout << "Р”Р»СЏ РІС‹С…РѕРґР° Р¶РјРё 0" << std::endl;
 	}
 	while ('0' != _getch());
 }
 
 std::vector<std::pair<std::string, bool>> names =
 {
-	{ "София", false }
-	, { "Анастасия", false }
-	, { "Виктория", false }
-	, { "Ксения", false }
-	, { "Арина", false }
-	, { "Елизавета", false }
-	, { "Аделина", false }
-	, { "Ирина", false }
-	, { "Елена", false }
-	, { "Полина", false }
-	, { "Дарья", false }
-	, { "Наталья", false }
-	, { "Светлана", false }
-	, { "Вера", false }
-	, { "Надежда", false }
-	, { "Галина", false }
-	, { "Любовь", false }
-	, { "Александра", false }
-	, { "Мария", false }
-	, { "Анна", false }
-	, { "Ангелина", false }
-	, { "Марина", false }
-	, { "Екатерина", false }
-	, { "Людмила", false }
-	, { "Татьяна", false }
-	, { "Артём", false }
-	, { "Александр", false }
-	, { "Роман", false }
-	, { "Евгений", false }
-	, { "Иван", false }
-	, { "Максим", false }
-	, { "Денис", false }
-	, { "Алексей", false }
-	, { "Дмитрий", false }
-	, { "Даниил", false }
-	, { "Сергей", false }
-	, { "Николай", false }
-	, { "Константин", false }
-	, { "Никита", false }
-	, { "Михаил", false }
-	, { "Борис", false }
-	, { "Виктор", false }
-	, { "Геннадий", false }
-	, { "Вячеслав", false }
-	, { "Владимир", false }
-	, { "Андрей", false }
-	, { "Анатолий", false }
-	, { "Илья", false }
-	, { "Кирилл", false }
-	, { "Олег", false }
+	{ "РЎРѕС„РёСЏ", false }
+	, { "РђРЅР°СЃС‚Р°СЃРёСЏ", false }
+	, { "Р’РёРєС‚РѕСЂРёСЏ", false }
+	, { "РљСЃРµРЅРёСЏ", false }
+	, { "РђСЂРёРЅР°", false }
+	, { "Р•Р»РёР·Р°РІРµС‚Р°", false }
+	, { "РђРґРµР»РёРЅР°", false }
+	, { "РСЂРёРЅР°", false }
+	, { "Р•Р»РµРЅР°", false }
+	, { "РџРѕР»РёРЅР°", false }
+	, { "Р”Р°СЂСЊСЏ", false }
+	, { "РќР°С‚Р°Р»СЊСЏ", false }
+	, { "РЎРІРµС‚Р»Р°РЅР°", false }
+	, { "Р’РµСЂР°", false }
+	, { "РќР°РґРµР¶РґР°", false }
+	, { "Р“Р°Р»РёРЅР°", false }
+	, { "Р›СЋР±РѕРІСЊ", false }
+	, { "РђР»РµРєСЃР°РЅРґСЂР°", false }
+	, { "РњР°СЂРёСЏ", false }
+	, { "РђРЅРЅР°", false }
+	, { "РђРЅРіРµР»РёРЅР°", false }
+	, { "РњР°СЂРёРЅР°", false }
+	, { "Р•РєР°С‚РµСЂРёРЅР°", false }
+	, { "Р›СЋРґРјРёР»Р°", false }
+	, { "РўР°С‚СЊСЏРЅР°", false }
+	, { "РђСЂС‚С‘Рј", false }
+	, { "РђР»РµРєСЃР°РЅРґСЂ", false }
+	, { "Р РѕРјР°РЅ", false }
+	, { "Р•РІРіРµРЅРёР№", false }
+	, { "РРІР°РЅ", false }
+	, { "РњР°РєСЃРёРј", false }
+	, { "Р”РµРЅРёСЃ", false }
+	, { "РђР»РµРєСЃРµР№", false }
+	, { "Р”РјРёС‚СЂРёР№", false }
+	, { "Р”Р°РЅРёРёР»", false }
+	, { "РЎРµСЂРіРµР№", false }
+	, { "РќРёРєРѕР»Р°Р№", false }
+	, { "РљРѕРЅСЃС‚Р°РЅС‚РёРЅ", false }
+	, { "РќРёРєРёС‚Р°", false }
+	, { "РњРёС…Р°РёР»", false }
+	, { "Р‘РѕСЂРёСЃ", false }
+	, { "Р’РёРєС‚РѕСЂ", false }
+	, { "Р“РµРЅРЅР°РґРёР№", false }
+	, { "Р’СЏС‡РµСЃР»Р°РІ", false }
+	, { "Р’Р»Р°РґРёРјРёСЂ", false }
+	, { "РђРЅРґСЂРµР№", false }
+	, { "РђРЅР°С‚РѕР»РёР№", false }
+	, { "РР»СЊСЏ", false }
+	, { "РљРёСЂРёР»Р»", false }
+	, { "РћР»РµРі", false }
 };
 
 const std::vector<std::string> SUBJECT_NAMES =
 {
-	"Программирование"
-	, "Математика"
-	, "Физика"
+	"РџСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёРµ"
+	, "РњР°С‚РµРјР°С‚РёРєР°"
+	, "Р¤РёР·РёРєР°"
 };
 
 const unsigned COUNT_STUDENTS = 40;
@@ -284,13 +284,13 @@ struct Statement
 
 void part3()
 {
-	std::cout << "Студентики" << std::endl;
+	std::cout << "РЎС‚СѓРґРµРЅС‚РёРєРё" << std::endl;
 
 	do
 	{
 		Statement statement;
 		std::vector<Row *> greats = statement.getGreatStudent();
-		std::cout << "Лучшие студенты: " << std::endl;
+		std::cout << "Р›СѓС‡С€РёРµ СЃС‚СѓРґРµРЅС‚С‹: " << std::endl;
 		
 		if (greats[0]->goodWeekCounter > 0)
 		{
@@ -301,11 +301,11 @@ void part3()
 		}
 		else
 		{
-			std::cout << "Набрали дебилов, блин... -_-" << std::endl;
+			std::cout << "РќР°Р±СЂР°Р»Рё РґРµР±РёР»РѕРІ, Р±Р»РёРЅ... -_-" << std::endl;
 		}
 
-		std::cout << "Недель на 4 и 5: " << greats[0]->goodWeekCounter << std::endl;
-		std::cout << "\nДля выхода жми 0\n" << std::endl;
+		std::cout << "РќРµРґРµР»СЊ РЅР° 4 Рё 5: " << greats[0]->goodWeekCounter << std::endl;
+		std::cout << "\nР”Р»СЏ РІС‹С…РѕРґР° Р¶РјРё 0\n" << std::endl;
 	}
 	while ('0' != _getch());
 }
