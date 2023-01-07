@@ -6,7 +6,7 @@
 <div><a href="https://ravesli.com/praktika-chast-3/">Часть №3: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-4/">Часть №4: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-5/">Часть №5: Практические задания по С++</a></div>
-<div><a href="https://ravesli.com/praktika-chast-6/">Часть №6: Практические задания по С++6</a></div>
+<div><a href="https://ravesli.com/praktika-chast-6/">Часть №6: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-7/">Часть №7: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-8/">Часть №8: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-9/">Часть №9: Практические задания по С++</a></div>
