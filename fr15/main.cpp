@@ -103,11 +103,11 @@ void part3()
 			continue;
 		}
 
-		std::pair<std::string, std::string> s;
+		std::pair<std::string, std::string> s{ "", str };
 		int count = 0;
 
 		// Так делать не надо, но очень хотелось :)
-		while (str != (std::cout << "[" << count++ << "] " << (s = mix(str)).first << " " << s.second << std::endl, s.second));
+		while (str != (std::cout << "[" << count++ << "] " << (s = mix(s.second)).first << " " << s.second << std::endl, s.second));
 
 		std::cout << "Для выхода жми 0" << std::endl;
 	}
