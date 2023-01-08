@@ -18,3 +18,4 @@
 <div><a href="https://ravesli.com/praktika-chast-15/">Часть №15: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-16/">Часть №16: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-17/">Часть №17: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-18/">Часть №18: Практические задания по С++</a></div>
