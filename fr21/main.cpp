@@ -17,6 +17,7 @@
 #include <map>
 #include <random>
 #include <locale>
+#include <chrono>
 
 #pragma warning(push)
 #pragma warning(disable: 6031)
@@ -108,7 +109,7 @@ void part2()
         std::cout << "2. Ножницы\n";
         std::cout << "3. Бумага\n";
         bool isGood = false;
-        Items userItem;
+        Items userItem{};
         Items item = (Items)(rand() % 3 + 1);
         int codeWin = 0;
 
@@ -159,9 +160,58 @@ void part2()
 void part3()
 {
     std::cout << "Генератор пароля" << std::endl;
+    
+    enum Items
+    {
+        EASY = 1,
+        NORMAL,
+        HARD
+    };
 
     do
     {
+        system("cls");
+        std::cout << "Выбирай, нажимая соответствующую цифру:\n";
+        std::cout << "1. Лёгкий\n";
+        std::cout << "2. Средний\n";
+        std::cout << "3. Сложный\n";
+        bool isGood = false;
+        Items userItem{};
+        std::string password{};
+        std::string passwordCollection{};
+        int passwordLength{};
+        std::mt19937 rnd(std::chrono::steady_clock::now().time_since_epoch().count());
+
+        do
+        {
+            switch (userItem = (Items)(_getch() - '0'))
+            {
+            case Items::HARD:
+                passwordCollection += "!@#$%^&*()_+=-\"№;?'\\|/<>.,";
+                passwordLength += 32;
+            case Items::NORMAL:
+                passwordCollection += "qwertyuiopasdfghjklzxcvbnm";
+                passwordLength += 10;
+            case Items::EASY:
+                passwordCollection += "QWERTYUIOPASDFGHJKLZXCVBNM0123456789";
+                passwordLength += 8;
+                break;
+            default:
+                continue;
+            }
+
+            std::uniform_int_distribution<int> distrib(0, passwordCollection.size() - 1);
+
+            for (ptrdiff_t i = 0; i < passwordLength; ++i)
+            {
+                password += passwordCollection[distrib(rnd)];
+            }
+
+            std::cout << "Пароль: " << password << "\n";
+            isGood = true;
+        }
+        while (!isGood);
+
         std::cout << "\nДля выхода жми 0" << std::endl;
     }
     while ('0' != _getch());
