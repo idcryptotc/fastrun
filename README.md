@@ -22,3 +22,6 @@
 <div><a href="https://ravesli.com/praktika-chast-19/">Часть №19: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-20/">Часть №20: Практические задания по С++</a></div>
 <div><a href="https://ravesli.com/praktika-chast-21/">Часть №21: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-22/">Часть №22: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-23/">Часть №23: Практические задания по С++</a></div>
+<div><a href="https://ravesli.com/praktika-chast-24/">Часть №24: Практические задания по С++</a></div>
