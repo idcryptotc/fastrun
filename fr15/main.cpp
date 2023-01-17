@@ -121,7 +121,7 @@ std::pair<std::string, std::string> mix(std::string str)
 
 	for (std::size_t i = 0; i < l; ++i)
 	{
-		indexes[i] = i + '0';
+		indexes[i] = static_cast<char>(i + '0');
 	}
 
 	int r;

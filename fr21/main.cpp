@@ -180,7 +180,7 @@ void part3()
         std::string password{};
         std::string passwordCollection{};
         int passwordLength{};
-        std::mt19937 rnd(std::chrono::steady_clock::now().time_since_epoch().count());
+        std::mt19937_64 rnd(std::chrono::steady_clock::now().time_since_epoch().count());
 
         do
         {
