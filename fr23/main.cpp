@@ -103,9 +103,8 @@ void part1()
         const std::regex whitespaceRegex("\\s+");
         auto str1 = std::sregex_token_iterator(str.begin(), str.end(), whitespaceRegex, -1);
         auto str2 = std::sregex_token_iterator();
-        ptrdiff_t count = std::count(str.begin(), str.end(), ch) + 1;
-        std::vector<std::string> result(count);
-        std::copy(str1, str2, result.begin());
+        std::vector<std::string> result;
+        std::copy(str1, str2, std::back_inserter(result));
         std::reverse(result.begin(), result.end());
         std::string stringResult{ "" };
 
@@ -127,15 +126,64 @@ void part1()
     while ('0' != _getch());
 }
 
+std::vector<int> findDuplicates(std::vector<int> array)
+{
+    std::set<int> duplicates;
+    std::sort(array.begin(), array.end());
+    std::set<int> distinct(array.begin(), array.end());
+    std::set_difference(array.begin(), array.end()
+        , distinct.begin(), distinct.end()
+        , std::inserter(duplicates, duplicates.end()));
+    return std::vector<int>(duplicates.begin(), duplicates.end());
+}
+
 void part2()
 {
     std::mt19937_64 rnd(std::chrono::steady_clock::now().time_since_epoch().count());
-    std::uniform_int_distribution<int> distrib(0, 9);
+    std::uniform_int_distribution<int> distribSize(10, 20);
+    std::uniform_int_distribution<int> distribNum(0, 9);
     std::cout << "Массивная задача" << std::endl;
-    std::string number = std::to_string(distrib(rnd));
 
     do
     {
+        ptrdiff_t size1 = distribSize(rnd);
+        ptrdiff_t size2 = distribSize(rnd);
+        std::vector<int> array1;
+        
+        for (ptrdiff_t i = 0; i < size1; ++i)
+        {
+            int num = distribNum(rnd);
+            array1.push_back(num);
+            std::cout << num << ' ';
+        }
+
+        std::vector<int> array1D{ findDuplicates(array1) };
+        std::cout << "\n";
+        std::vector<int> array2;
+
+        for (ptrdiff_t i = 0; i < size2; ++i)
+        {
+            int num = distribNum(rnd);
+            array2.push_back(num);
+            std::cout << num << ' ';
+        }
+
+        std::vector<int> array2D{ findDuplicates(array2) };
+        std::cout << "\n";
+        std::vector<int> array;
+        array.reserve(array1D.size() + array2D.size());
+        array.insert(array.end(), array1D.begin(), array1D.end());
+        array.insert(array.end(), array2D.begin(), array2D.end());
+        array = findDuplicates(array);
+        std::sort(array.begin(), array.end());
+        auto last = std::unique(array.begin(), array.end());
+        array.erase(last, array.end());
+
+        for (const auto &i : array)
+        {
+            std::cout << i << ' ';
+        }
+
         std::cout << "\nДля выхода жми 0" << std::endl;
     }
     while ('0' != _getch());
