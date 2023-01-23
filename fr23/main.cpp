@@ -204,8 +204,52 @@ void part3()
         Sleep(500);
         std::cout << "Если загадал, жмякни чё-нить" << std::endl;
         _getch();
+        int number{};
+        std::pair<int, int>limits{ 0, 101 };
+        char userAnswer{};
+        bool isStop = false;
+        bool isCheater = false;
 
-        std::cout << "УРА!!! ПОБЕДА!!!\nДля выхода жми 0" << std::endl;
+        while (!isStop)
+        {
+            number = (limits.first + limits.second) / 2;
+            
+            if (isCheater = (limits.first == number && number != 0)
+                || (number == limits.second && number != 100))
+            {
+                break;
+            }
+            
+            std::cout << "Ваше число: " << number << " ?\n";
+            std::cout << "1. Да!\n";
+            std::cout << "2. Нет! Загаданное число больше\n";
+            std::cout << "3. Нет! Загаданное число меньше\n";
+
+            while (true)
+            {
+                userAnswer = _getch();
+
+                if ('0' < userAnswer && '4' > userAnswer)
+                {
+                    break;
+                }
+            }
+
+            switch (userAnswer)
+            {
+            case '1':
+                isStop = true;
+                break;
+            case '2':
+                limits.first = number;
+                break;
+            case '3':
+                limits.second = number;
+                break;
+            }
+        }
+
+        std::cout << (isCheater ? "Ты обманщик!" : "УРА!!! ПОБЕДА!!!") << "\nДля выхода жми 0" << std::endl;
     }
     while ('0' != _getch());
 }
