@@ -37,7 +37,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     //part1();
-    part2();
+    //part2();
     part3();
     return 0;
 }
@@ -103,73 +103,278 @@ void part2()
 
     do
     {
-        
+        size_t f1size = f1.size();
+        size_t f2size = f2.size();
+        int if1{}, jf2{};
+        bool isChangef1 = true;
+        bool isChangef2 = true;
+        bool isStopf1 = false;
+        bool isStopf2 = false;
+
+        for (size_t i = 0, j = 0; !isStopf1 || !isStopf2;)
+        {
+            if (f1size > i)
+            {
+                if (isChangef1)
+                {
+                    if1 = f1[i];
+                    isChangef1 = false;
+                }
+            }
+            else
+            {
+                isStopf1 = true;
+            }
+
+            if (f2size > j)
+            {
+                if (isChangef2)
+                {
+                    jf2 = f2[j];
+                    isChangef2 = false;
+                }
+            }
+            else
+            {
+                isStopf2 = true;
+            }
+
+            if (if1 == jf2)
+            {
+                f1[i] = -1;
+                ++i;
+                f2[j] = -1;
+                ++j;
+                isChangef1 = true;
+                isChangef2 = true;
+                continue;
+            }
+            else
+            {
+                if (if1 > jf2 && !isStopf2)
+                {
+                    ++j;
+                    isChangef2 = true;
+                    continue;
+                }
+                else
+                {
+                    if (if1 < jf2 && !isStopf1)
+                    {
+                        ++i;
+                        isChangef1 = true;
+                        continue;
+                    }
+                }
+            }
+
+            break;
+        }
+
+        f1.erase(std::remove(f1.begin(), f1.end(), -1), f1.end());
+        f2.erase(std::remove(f2.begin(), f2.end(), -1), f2.end());
+        std::ofstream fout1("prime_numbers_out.txt");
+        std::ofstream fout2("happy_numbers_out.txt");
+
+        if (!fout1.is_open())
+        {
+            std::cout << "Жопа... файл не открылся..." << std::endl;
+            return;
+        }
+
+        if (!fout2.is_open())
+        {
+            std::cout << "Жопа... файл не открылся..." << std::endl;
+            return;
+        }
+
+        for (const auto &i : f1)
+        {
+            fout1 << i << "\n";
+        }
+
+        for (const auto &j : f2)
+        {
+            fout2 << j << "\n";
+        }
+
+        fout1.close();
+        fout2.close();
+
         std::cout << "\nДля выхода жми 0" << std::endl;
     }
     while ('0' != _getch());
 }
 
+float x;
+HDC hDC = GetDC(GetConsoleWindow());
+HPEN Pen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+
+void draw(int wrongsCount)
+{
+    SelectObject(hDC, Pen);
+
+    switch (wrongsCount)
+    {
+        case 7:		// Правая нога
+        {
+            MoveToEx(hDC, 425, 125, NULL);
+            LineTo(hDC, 440, 140);
+        }
+        case 6:		// Левая нога
+        {
+            MoveToEx(hDC, 425, 125, NULL);
+            LineTo(hDC, 410, 140);
+        }
+        case 5:		// Правая рука
+        {
+            MoveToEx(hDC, 425, 95, NULL);
+            LineTo(hDC, 440, 110);
+        }
+        case 4:		// Левая рука
+        {
+            MoveToEx(hDC, 425, 95, NULL);
+            LineTo(hDC, 410, 110);
+        }
+        case 3:		// Туловище
+        {
+            MoveToEx(hDC, 425, 95, NULL);
+            LineTo(hDC, 425, 125);
+        }
+        case 2:		// Петля
+        {
+            MoveToEx(hDC, 425, 50, NULL);
+            LineTo(hDC, 425, 75);
+
+            for (x = -10.0f; x <= 10.0f; x += 0.01f)
+            {
+                MoveToEx(hDC, static_cast<int>(x + 425), static_cast<int>(sqrt(100 - x * x) + 85), NULL);
+                LineTo(hDC, static_cast<int>(x + 425), static_cast<int>(sqrt(100 - x * x) + 85));
+            }
+
+            for (x = -10.0f; x <= 10.0f; x += 0.01f)
+            {
+                MoveToEx(hDC, static_cast<int>(x + 425), static_cast<int>(-sqrt(100 - x * x) + 85), NULL);
+                LineTo(hDC, static_cast<int>(x + 425), static_cast<int>(-sqrt(100 - x * x) + 85));
+            }
+        }
+        case 1:		// Балка
+        {
+            MoveToEx(hDC, 335, 50, NULL);
+            LineTo(hDC, 428, 50);
+            MoveToEx(hDC, 350, 75, NULL);
+            LineTo(hDC, 375, 50);
+        }
+        case 0:		// Столб
+        {
+            MoveToEx(hDC, 300, 200, NULL);
+            LineTo(hDC, 490, 200);
+            MoveToEx(hDC, 350, 200, NULL);
+            LineTo(hDC, 350, 50);
+            MoveToEx(hDC, 335, 200, NULL);
+            LineTo(hDC, 350, 185);
+            MoveToEx(hDC, 365, 200, NULL);
+            LineTo(hDC, 350, 185);
+        }
+    }
+}
+
 void part3()
 {
+    std::cout << "ВисилиЦЦа" << std::endl;
+    std::mt19937_64 rnd(std::chrono::steady_clock::now().time_since_epoch().count());
+    const int MAX_WRONG = 7;  // Максимум ошибок
+    std::string fileName{ "RussianWords1000.txt" };
+    std::string inputLine{};
+    std::ifstream fin(fileName);
+
+    if (!fin.is_open())
+    {
+        std::cout << "Файл " << fileName << " не может быть открыт.";
+        _getch();
+        return;
+    }
+
+    std::vector<std::string> words;  // Коллекция слов
+
+    while (std::getline(fin, inputLine))
+    {
+        words.push_back(inputLine);
+    }
+
+    std::uniform_int_distribution<int> distrib(0, words.size() - 1);
+    std::locale loc("ru");
 
     do
     {
-        std::cout << "Я угадаю число от 0 до 100, загаданное тобой" << std::endl;
-        Sleep(500);
-        std::cout << "Нет, писать его в меня не надо" << std::endl;
-        Sleep(500);
-        std::cout << "Да, чтоб я не подсмотрел" << std::endl;
-        Sleep(500);
-        std::cout << "Ну, как? Загадал?" << std::endl;
-        Sleep(500);
-        std::cout << "Если загадал, жмякни чё-нить" << std::endl;
-        _getch();
-        int number{};
-        std::pair<int, int>limits{ 0, 101 };
-        char userAnswer{};
-        bool isStop = false;
-        bool isCheater = false;
+        system("cls");
+        const std::string THE_WORD = words[distrib(rnd)];
+        int wrongsCount = -1;
+        std::string hiddenWord(THE_WORD.size(), '-');
+        std::string usedLetters = "";
 
-        while (!isStop)
+        while ((wrongsCount < MAX_WRONG) && (hiddenWord != THE_WORD))
         {
-            number = (limits.first + limits.second) / 2;
-
-            if (isCheater = (limits.first == number && number != 0)
-                || (number == limits.second && number != 100))
-            {
-                break;
-            }
-
-            std::cout << "Ваше число: " << number << " ?\n";
-            std::cout << "1. Да!\n";
-            std::cout << "2. Нет! Загаданное число больше\n";
-            std::cout << "3. Нет! Загаданное число меньше\n";
+            std::cout << "Готов повеситься? Удачи!\n";
+            std::cout << "Ты называл буквы:\n" << usedLetters << std::endl;
+            std::cout << "\nЭто то, что ты знаешь:\n" << hiddenWord << std::endl;
+            std::cout << "\n\nПробуй: ";
+            draw(wrongsCount);
+            char guess;
 
             while (true)
             {
-                userAnswer = _getch();
+                guess = _getch();
 
-                if ('0' < userAnswer && '4' > userAnswer)
+                if (std::isupper(guess, loc))
                 {
+                    std::cout << "\nПиши маленькими буквами!\nПробуй: ";
+                    continue;
+                }
+
+                if (std::islower(guess, loc)
+                    && usedLetters.find(guess) == std::string::npos)
+                {
+                    std::cout << guess;
                     break;
                 }
             }
 
-            switch (userAnswer)
+            usedLetters += guess;
+            system("cls");
+            Sleep(20);
+
+            if (THE_WORD.find(guess) != std::string::npos)
             {
-            case '1':
-                isStop = true;
-                break;
-            case '2':
-                limits.first = number;
-                break;
-            case '3':
-                limits.second = number;
-                break;
+                for (size_t i = 0; i < THE_WORD.length(); ++i)
+                {
+                    if (THE_WORD[i] == guess)
+                    {
+                        hiddenWord[i] = guess;
+                    }
+                }
+            }
+            else
+            {
+                ++wrongsCount;
             }
         }
 
-        std::cout << (isCheater ? "Ты обманщик!" : "УРА!!! ПОБЕДА!!!") << "\nДля выхода жми 0" << std::endl;
+        system("cls");
+        Sleep(20);
+        draw(wrongsCount);
+
+        if (wrongsCount == MAX_WRONG)
+        {
+            std::cout << "\nТы удачно повесился!";
+        }
+        else
+        {
+            std::cout << "\nМожешь уходить!";
+        }
+
+        std::cout << "\nЗагаданное слово: " << THE_WORD << std::endl;
+        std::cout << "\nДля выхода жми 0" << std::endl;
     }
     while ('0' != _getch());
 }
